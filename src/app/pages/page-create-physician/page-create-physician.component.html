@@ -1,0 +1,50 @@
+<!-- <p>page-create-physician works!</p> -->
+
+<h1>Créer nouveau médecin</h1>
+<form class="mt-5 col-md-6 m-auto" [formGroup]="newPhysicianForm" (ngSubmit)="onSubmitForm()">
+    <div class="mb-3">
+        <label for="lastname" class="form-label">Nom</label>
+        <div class="input-group">
+            <input placeholder="Nom du médecin" formControlName="lastname" type="text" class="form-control"
+                aria-describedby="userHelp" id="lastname">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="firstname" class="form-label">Prénom</label>
+        <div class="input-group">
+            <input placeholder="Prénom du médecin" formControlName="firstname" type="text"
+                class="form-control" aria-describedby="userHelp" id="firstname">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="specialite" class="form-label">Spécialité</label>
+        <div>
+            <select class="form-select" aria-label="Default select example" formControlName="specialite" >
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">four</option>
+                <option value="5">five</option>
+            </select>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="adresse" class="form-label">Adresse du cabinet</label>
+        <div class="input-group">
+            <input placeholder="Adresse du cabinet" formControlName="adresse" type="text"
+                class="form-control" aria-describedby="userHelp" id="adresse">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="siret" class="form-label">Numéro de siret</label>
+        <div class="input-group">
+            <input placeholder="Numéro de siret" formControlName="siret" type="number" class="form-control"
+                aria-describedby="userHelp" id="siret">
+        </div>
+    </div>
+    <div class="d-grid col-12 col-md-2 ms-auto">
+        <button [disabled]="newPhysicianForm.invalid" type="submit" class="btn btn-primary text-nowrap">Créer</button>
+    </div>
+</form>
+

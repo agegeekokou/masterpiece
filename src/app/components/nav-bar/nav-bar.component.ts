@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,10 +9,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
-  constructor() { }
+  public isAuthenticated = false;
+  
+  constructor(private authService: AuthenticationService, private router: Router) { 
+    
+  }
+  
 
   ngOnInit(): void {
+    const token = localStorage.getItem('token');
+    if (token !== null && token !== '') {
+      this.isAuthenticated = true;
+    }
+    this.authService.messager.subscribe((message: boolean) => {
+      console.log("Un utilisateur s'est connecté ou déconnecté !");
+      console.log(message);
+      this.isAuthenticated = message;
+    })
+  }
+  onclickLogOut() {
+    console.log("fonction est déclenchée !");
+    localStorage.removeItem('token');
+    this.isAuthenticated = false;
+    this.router.navigateByUrl('/page-sign-in');
   }
 
 }

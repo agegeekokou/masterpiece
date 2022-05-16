@@ -1,1 +1,24 @@
-<p>page-sign-up works!</p>
+<!-- <p>page-sign-up works!</p> -->
+
+<main class="container-xl" >
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmitForm()" class="row row-cols-lg-auto g-3 align-items-center mt-5">
+        <div class=" col col-md-6  mx-auto ">
+            <label for="inlineFormInputGroupUsername">Username</label>
+            <div class="input-group">
+                <div class="input-group-text">@</div>
+                <input formControlName="userName" type="text" class="form-control" id="inlineFormInputGroupUsername">
+            </div>
+            <p class="text-muted"> Must be a valid email adress</p>
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+            <p class="text-muted"> From 8 to 12 characters, at least 1 uppercase letter, 1 lowercase letter, 1 digit and 1
+                special
+                chararcter.</p>
+            <label for="passwordConfirmation" class="form-label">Confirm password</label>
+            <input formControlName="confirmPassword" type="password" class="form-control" id="passwordConfirmation">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button class="btn btn-primary" type="submit">Envoyer</button>
+            </div>
+        </div>
+    </form>
+</main>
