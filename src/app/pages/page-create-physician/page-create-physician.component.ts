@@ -11,15 +11,21 @@ import { PhysicianService } from 'src/app/services/physician.service';
 })
 export class PageCreatePhysicianComponent implements OnInit {
   newPhysicianForm!: FormGroup;
+  public specialtiesItems!: any;
+  public items: any;
   constructor(private fb: FormBuilder, private physicianService: PhysicianService, private router: Router) { }
 
   ngOnInit(): void {
     this.newPhysicianForm = this.fb.group({
       lastname: ['', Validators.required],
       firstname: [, Validators.required],
-      specialite: [, Validators.required],
+      specialty: [, Validators.required],
       adresse: ['', Validators.required],
       siret: ['', Validators.required]
+    })
+
+    const specialtiesItems = this.physicianService.getAllSpecialties().subscribe(() => {
+      console.log("Voici la liste des spécialités");
     })
   }
   onSubmitForm() {
@@ -27,8 +33,8 @@ export class PageCreatePhysicianComponent implements OnInit {
     const newPhysician = new Physician(
       this.newPhysicianForm.value.lastname,
       this.newPhysicianForm.value.firstname,
-      this.newPhysicianForm.value.specialite,
-      this.newPhysicianForm.value.adresse,
+      this.newPhysicianForm.value.specialty,
+      this.newPhysicianForm.value.address,
       this.newPhysicianForm.value.siret
     );
       console.log(newPhysician);
@@ -36,6 +42,9 @@ export class PageCreatePhysicianComponent implements OnInit {
       console.log("Le médecin a été créé !!!");
       this.router.navigateByUrl('/page-profile');
     });
+
+
 }
+  
 
 }

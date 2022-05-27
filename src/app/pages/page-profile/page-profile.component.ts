@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Physician } from 'src/app/models/physician';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { PhysicianService } from 'src/app/services/physician.service';
 
 @Component({
   selector: 'app-page-profile',
@@ -7,15 +9,24 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./page-profile.component.css']
 })
 export class PageProfileComponent implements OnInit {
+  public listPhysicians !: any[];
   
-  constructor(private authService: AuthenticationService) {
+  
+  constructor(private physicianService: PhysicianService) {
     
    }
 
   ngOnInit(): void {
-    this.authService.getUserInfo().subscribe((userInfo: any) => {
-      console.log(userInfo);
-    });
+    fetch("http://localhost:8080/physicians")
+      .then((datas) => datas.json())
+      .then((response) => {
+        console.log(response);
+        this.listPhysicians = response;
+      })
+    // this.physicianService.getAllPhysicians().subscribe((resp) => {
+    //   console.log(resp);
+    //   this.listPhysicians = resp;
+    // })
   }
 
 }

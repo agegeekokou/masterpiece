@@ -18,7 +18,7 @@ export class AuthenticationService {
       "email": username,
       "password": password
     }
-    return this.http.post(`${this.urlApi}/api/auth/register`, body);
+    return this.http.post(`${this.urlApi}/users`, body);
   }
   public logUser(username: string, password: string) {
     const body = {
@@ -30,7 +30,7 @@ export class AuthenticationService {
   getUserInfo() {
     const token = localStorage.getItem("token");
 
-    return this.http.get(`${this.urlApi}/api/auth/current`,
+    return this.http.get(`${this.urlApi}/`,
       { headers: { Authorization: `Bearer ${token}` } })
   }
 }

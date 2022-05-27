@@ -15,6 +15,8 @@ import { PageSignInComponent } from './pages/page-sign-in/page-sign-in.component
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { PageProfileComponent } from './pages/page-profile/page-profile.component';
 import { PageCreatePhysicianComponent } from './pages/page-create-physician/page-create-physician.component';
+import { PageTestComponent } from './page-test/page-test.component';
+import { PageListPhysiciansComponent } from './page-list-physicians/page-list-physicians.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PageCreatePhysicianComponent } from './pages/page-create-physician/page
     PageSignInComponent,
     PageNotFoundComponent,
     PageProfileComponent,
-    PageCreatePhysicianComponent
+    PageCreatePhysicianComponent,
+    PageTestComponent,
+    PageListPhysiciansComponent
   ],
   imports: [
     BrowserModule,

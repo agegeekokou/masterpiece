@@ -1,0 +1,30 @@
+<p>page-list-physicians works!</p>
+
+<h1>Liste des médecins</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Spécialité</th>
+            <th>Adresse</th>
+            <th>Siret</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let list of listPhysicians">
+            <td>{{ list.lastname }}</td> 
+            <td>{{ list.firstname }}</td>
+            <td>{{ list.specialty }}</td>
+            <td>{{ list.address }}</td> 
+            <td>{{ list.siret }}</td>
+            <td>
+                <button class="btn btn-warning" routerLink="/update-country/{{physicianId}}">Modifier</button>
+            </td>
+            <td>
+                <button class="btn btn-danger" (click)="onClickDeletePhysician(physicianId)">Supprimer</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,15 +1,15 @@
 export class Physician {
     lastname: string;
     firstname: string;
-    specialite: string;
-    adresse: string;
-    siret: number;
+    specialty: string;
+    address: string;
+    siret: string;
 
-    constructor(paramLastname: string, paramFirstname: string, paramSpecialite: string, paramAdresse: string, paramSiret: number) {
+    constructor(paramLastname: string, paramFirstname: string, paramSpecialty: string, paramAdresse: string, paramSiret: string) {
         this.lastname = paramLastname;
         this.firstname = paramFirstname;
-        this.specialite = paramSpecialite;
-        this.adresse = paramAdresse;
+        this.specialty = paramSpecialty;
+        this.address = paramAdresse;
         this.siret = paramSiret;
     }
 }
