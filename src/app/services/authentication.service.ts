@@ -15,7 +15,7 @@ export class AuthenticationService {
   
   public registerUser(username: string, password: string) {
     const body = {
-      "email": username,
+      "username": username,
       "password": password
     }
     return this.http.post(`${this.urlApi}/users`, body);

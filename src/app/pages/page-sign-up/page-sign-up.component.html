@@ -6,12 +6,12 @@
             <label for="inlineFormInputGroupUsername">Username</label>
             <div class="input-group">
                 <div class="input-group-text">@</div>
-                <input formControlName="userName" type="text" class="form-control" id="inlineFormInputGroupUsername">
+                <input formControlName="username" type="text" class="form-control" id="inlineFormInputGroupUsername">
             </div>
-            <p class="text-muted" *ngIf="signUpForm.controls['userName'].touched && signUpForm.controls['userName'].invalid"> 
+            <p class="text-muted" *ngIf="signUpForm.controls['username'].touched && signUpForm.controls['username'].invalid"> 
                 L'adresse email est obligatoire</p>
             <div class="form-text alert-danger"
-                *ngIf="signUpForm.controls['userName'].touched && signUpForm.controls['userName'].getError('email') ">
+                *ngIf="signUpForm.controls['username'].touched && signUpForm.controls['username'].getError('email') ">
                 Le format de l'email n'est pas correct ... 😢
             </div>
             <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -30,7 +30,7 @@
                 Les mots de passe doivent être similaires 😉
             </div>
             
-            <input formControlName="roleName" type="hidden" value="ROLE_PHYSICIAN" class="form-control" id="roleName">
+            <!-- <input formControlName="roleName" type="hidden" value="ROLE_PHYSICIAN" class="form-control" id="roleName"> -->
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
                 <button [disabled]="signUpForm.invalid" class="btn btn-primary" type="submit">Envoyer</button>
             </div>

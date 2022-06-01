@@ -26,7 +26,7 @@ export class PageSignInComponent implements OnInit {
       next: (resp: any) => {
         console.log(resp.token);
 
-        this.router.navigateByUrl('/page-profile');
+        this.router.navigateByUrl('/page-list-physicians');
         // TODO stockage de mon token 
         localStorage.setItem("token", resp.token);
         this.authService.messager.next(true);
