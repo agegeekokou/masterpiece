@@ -19,17 +19,41 @@ export class PhysicianService {
       { headers: { Authorization: `Bearer ${token}` } })
   }
 
+  getPhysicianById(physicianId: string): Observable<Physician> {
+    const token = localStorage.getItem("token");
+
+    return this.http.get<Physician>(`${this.urlApi}/physicians/${physicianId}`,
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+  }
+
   getAllSpecialties(){
     const token = localStorage.getItem("token");
     return this.http.get(`${this.urlApi}/specialties`,
-      { headers: { Authorization: `Bearer ${token}` } });
+      { headers: { Authorization: `Bearer ${token}` } })
+  }
 
+  updatePhysician(physician: Physician): Observable<any> {
+    const token = localStorage.getItem("token");
+
+    const body = {
+      lastname: physician.lastname,
+      firstname: physician.firstname,
+      specialtyId: physician.specialty,
+      address: physician.address,
+      siret: physician.siret,
+      id: physician.id
+    }
+
+    return this.http.put<any>(`${this.urlApi}/physicians/${physician.id}`,
+      body,
+      { headers: { Authorization: `Bearer ${token}` }})
   }
 
   deletePhysician(physicianId: string) {
     const token = localStorage.getItem("token");
 
-    return this.http.delete(`${this.urlApi}/physicians`,
+    return this.http.delete(`${this.urlApi}/physicians/${physicianId}`,
       { headers: { Authorization: `Bearer ${token}` } })
   }
 

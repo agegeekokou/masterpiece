@@ -17,6 +17,7 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
 import { PageCreatePhysicianComponent } from './pages/page-create-physician/page-create-physician.component';
 import { PageTestComponent } from './page-test/page-test.component';
 import { PageListPhysiciansComponent } from './page-list-physicians/page-list-physicians.component';
+import { PageUpdatePhysicianComponent } from './pages/page-update-physician/page-update-physician.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PageListPhysiciansComponent } from './page-list-physicians/page-list-ph
     PageProfileComponent,
     PageCreatePhysicianComponent,
     PageTestComponent,
-    PageListPhysiciansComponent
+    PageListPhysiciansComponent,
+    PageUpdatePhysicianComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
-<!-- <p>page-create-physician works!</p> -->
+<!-- <p>page-update-physician works!</p> -->
 
-<h1>Créer nouveau médecin</h1>
-<form class="mt-5 col-md-6 m-auto" [formGroup]="newPhysicianForm" (ngSubmit)="onSubmitForm()">
+<h1>Modifier un médecin</h1>
+<form *ngIf="updatePhysicianForm" class="mt-5 col-md-6 m-auto" [formGroup]="updatePhysicianForm" (ngSubmit)="onSubmitForm()">
     <div class="mb-3">
         <label for="lastname" class="form-label">Nom</label>
         <div class="input-group">
@@ -12,25 +12,26 @@
     <div class="mb-3">
         <label for="firstname" class="form-label">Prénom</label>
         <div class="input-group">
-            <input placeholder="Prénom du médecin" formControlName="firstname" type="text"
-                class="form-control" aria-describedby="userHelp" id="firstname">
+            <input placeholder="Prénom du médecin" formControlName="firstname" type="text" class="form-control"
+                aria-describedby="userHelp" id="firstname">
         </div>
     </div>
     <div class="mb-3">
         <label for="specialty" class="form-label">Spécialité</label>
         <div>
-            <select name="specialty" class="form-select" aria-label="Default select example" formControlName="specialty" >
-                <option selected *ngFor="let items of specialtiesItems" value= {{items.id}}>{{ items.name }}</option>
+            <select name="specialty" class="form-select" aria-label="Default select example"
+                formControlName="specialty">
+                <option selected *ngFor="let items of specialtiesItems" value={{items.id}}>{{ items.name }}</option>
                 <!-- <option value="items.id"></option> -->
-                        
+
             </select>
         </div>
     </div>
     <div class="mb-3">
         <label for="address" class="form-label">Adresse du cabinet</label>
         <div class="input-group">
-            <input placeholder="Adresse du cabinet" formControlName="address" type="text"
-                class="form-control" aria-describedby="userHelp" id="address" name="address">
+            <input placeholder="Adresse du cabinet" formControlName="address" type="text" class="form-control"
+                aria-describedby="userHelp" id="address" name="address">
         </div>
     </div>
     <div class="mb-3">
@@ -41,7 +42,7 @@
         </div>
     </div>
     <div class="d-grid col-12 col-md-2 ms-auto">
-        <button type="submit" class="btn btn-primary text-nowrap">Créer</button>
+        <button type="submit" class="btn btn-primary text-nowrap">Modifier</button>
     </div>
 </form>
 

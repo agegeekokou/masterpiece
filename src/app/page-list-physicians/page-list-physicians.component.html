@@ -1,4 +1,4 @@
-<p>page-list-physicians works!</p>
+<!-- <p>page-list-physicians works!</p> -->
 
 <h1>Liste des médecins</h1>
 
@@ -16,14 +16,14 @@
         <tr *ngFor="let list of listPhysicians">
             <td>{{ list.lastname }}</td> 
             <td>{{ list.firstname }}</td>
-            <td>{{ list.specialty }}</td>
+            <td>{{ list.specialty.name }}</td>
             <td>{{ list.address }}</td> 
             <td>{{ list.siret }}</td>
             <td>
-                <button class="btn btn-warning" routerLink="/update-country/{{physicianId}}">Modifier</button>
+                <button class="btn btn-warning" routerLink="/page-update-physician/{{list.id}}">Modifier</button>
             </td>
             <td>
-                <button class="btn btn-danger" (click)="onClickDeletePhysician(physicianId)">Supprimer</button>
+                <button class="btn btn-danger" (click)="onClickDeletePhysician(list.id)">Supprimer</button>
             </td>
         </tr>
     </tbody>

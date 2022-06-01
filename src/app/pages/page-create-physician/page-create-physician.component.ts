@@ -13,6 +13,7 @@ export class PageCreatePhysicianComponent implements OnInit {
   newPhysicianForm!: FormGroup;
   public specialtiesItems!: any;
   public items: any;
+  public name: any;
   constructor(private fb: FormBuilder, private physicianService: PhysicianService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,12 +21,13 @@ export class PageCreatePhysicianComponent implements OnInit {
       lastname: ['', Validators.required],
       firstname: [, Validators.required],
       specialty: [, Validators.required],
-      adresse: ['', Validators.required],
+      address: ['', Validators.required],
       siret: ['', Validators.required]
     })
 
-    const specialtiesItems = this.physicianService.getAllSpecialties().subscribe(() => {
-      console.log("Voici la liste des spécialités");
+    this.physicianService.getAllSpecialties().subscribe((response) => {
+      console.log(response);
+      this.specialtiesItems = response;
     })
   }
   onSubmitForm() {
@@ -35,12 +37,13 @@ export class PageCreatePhysicianComponent implements OnInit {
       this.newPhysicianForm.value.firstname,
       this.newPhysicianForm.value.specialty,
       this.newPhysicianForm.value.address,
-      this.newPhysicianForm.value.siret
+      this.newPhysicianForm.value.siret,
+      this.newPhysicianForm.value.id
     );
       console.log(newPhysician);
       this.physicianService.createNewPhysician(newPhysician).subscribe(() => {
       console.log("Le médecin a été créé !!!");
-      this.router.navigateByUrl('/page-profile');
+      this.router.navigateByUrl('/page-list-physicians');
     });
 
 

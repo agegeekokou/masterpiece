@@ -10,6 +10,7 @@ import { PageProfileComponent } from './pages/page-profile/page-profile.componen
 import { PageCreatePhysicianComponent } from './pages/page-create-physician/page-create-physician.component';
 import { PageTestComponent } from './page-test/page-test.component';
 import { PageListPhysiciansComponent } from './page-list-physicians/page-list-physicians.component';
+import { PageUpdatePhysicianComponent } from './pages/page-update-physician/page-update-physician.component';
 
 const routes: Routes = [
   { path: '', component: PageAccueilComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'page-create-physician', component: PageCreatePhysicianComponent },
   { path: 'page-test', component: PageTestComponent },
   { path: 'page-list-physicians', component: PageListPhysiciansComponent },
+  { path: 'page-update-physician/:id-physician', component: PageUpdatePhysicianComponent},
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent }
 ];
 

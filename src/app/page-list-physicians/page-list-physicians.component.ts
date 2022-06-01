@@ -10,7 +10,7 @@ import { PhysicianService } from '../services/physician.service';
 export class PageListPhysiciansComponent implements OnInit {
   public listPhysicians!: Physician[];
   public physicianId: any;
-  public physicianLastname: any;
+
   constructor(private physicianService: PhysicianService) { }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class PageListPhysiciansComponent implements OnInit {
           // Todo 
           // Rechercher dans le tableau this.listCountries l'objet country avec l'_id == countryId
           // et le supprimer pour que notre liste de pays n'affiche plus le pays supprimé
-          this.listPhysicians = this.listPhysicians.filter(physician => this.physicianLastname !== physicianId);
+          this.listPhysicians = this.listPhysicians.filter(physician => physician.id !== physicianId);
           // Version détaillée
           // const newArrayFiltered = this.listCountries.filter(country => country._id !==  countryId);
           // this.listCountries = newArrayFiltered;
