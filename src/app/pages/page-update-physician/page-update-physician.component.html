@@ -21,7 +21,7 @@
         <div>
             <select name="specialty" class="form-select" aria-label="Default select example"
                 formControlName="specialty">
-                <option selected *ngFor="let items of specialtiesItems" value={{items.id}}>{{ items.name }}</option>
+                <option *ngFor="let items of specialtiesItems" value={{items.id}} [ngValue]="items" [selected]="items.id">{{ items.name }}</option>
                 <!-- <option value="items.id"></option> -->
 
             </select>
@@ -41,7 +41,7 @@
                 aria-describedby="userHelp" id="siret" name="siret">
         </div>
     </div>
-    <div class="d-grid col-12 col-md-2 ms-auto">
+    <div class="d-grid col-12 col-md-2 ms-auto mb-4">
         <button type="submit" class="btn btn-primary text-nowrap">Modifier</button>
     </div>
 </form>

@@ -16,6 +16,7 @@ export class PageUpdatePhysicianComponent implements OnInit {
   public name: any;
   public physicianToUpdate!: Physician;
   public physician!: Physician;
+  public specialty!: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -24,10 +25,16 @@ export class PageUpdatePhysicianComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    this.physicianService.getAllSpecialties().subscribe((response) => {
+      console.log(response);
+      this.specialtiesItems = response;
+    })
+    
     this.activatedRoute.params.subscribe((param) => {
       console.log(param);
       this.physicianService.getPhysicianById(param['id-physician']).subscribe((respPhysician: Physician) => {
         console.log(respPhysician);
+        
         this.updatePhysicianForm = this.fb.group({
           lastname: [respPhysician.lastname, Validators.required],
           firstname: [respPhysician.firstname, Validators.required],
@@ -36,13 +43,11 @@ export class PageUpdatePhysicianComponent implements OnInit {
           siret: [respPhysician.siret, Validators.required],
           id: [respPhysician.id]    
         })
+        console.log(this.specialty);
+        // this.updatePhysicianForm.controls['id-physician'].setValue('items.id', { onlySelf: true })
       })
     })
 
-    this.physicianService.getAllSpecialties().subscribe((response) => {
-      console.log(response);
-      this.specialtiesItems = response;
-    })
   }
 
   
