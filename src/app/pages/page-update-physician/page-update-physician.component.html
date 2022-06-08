@@ -19,9 +19,9 @@
     <div class="mb-3">
         <label for="specialty" class="form-label">Spécialité</label>
         <div>
-            <select name="specialty" class="form-select" aria-label="Default select example"
-                formControlName="specialty">
-                <option *ngFor="let items of specialtiesItems" value={{items.id}} [ngValue]="items" [selected]="items.id">{{ items.name }}</option>
+            <select class="form-select" aria-label="Default select example"
+                formControlName="specialty" id="specialty">
+                <option *ngFor="let specialty of specialties" value={{specialty.id}}>{{ specialty.name }}</option>
                 <!-- <option value="items.id"></option> -->
 
             </select>

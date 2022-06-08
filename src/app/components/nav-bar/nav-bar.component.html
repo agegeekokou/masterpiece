@@ -7,53 +7,49 @@
             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div class="collapse navbar-collapse container-fluid d-flex justify-content-between" id="navbarTogglerDemo02">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" routerLink='' routerLinkActive="active">Accueil</a>
                 </li>
             </ul>
-            <ul *ngIf="isAuthenticated == true" class="navbar-nav me-auto mb-2 mb-lg-0">
             
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Admin
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a routerLink="/page-create-physician" routerLinkActive="active" class="dropdown-item" href="#">Créer un médecin</a></li>
-                    <li><a routerLink="/page-list-physicians" routerLinkActive="active" class="dropdown-item" href="#">Liste des médecins</a></li>
-                    
-                    
-                </ul>
-            </li>
-            
-            </ul>
-            <div class="container-fluid d-flex justify-content-between"></div>
+                <ul *ngIf="isAuthenticated == true" class="navbar-nav me-auto mb-2 mb-lg-0">
                 
-                </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a routerLink="/page-create-physician" routerLinkActive="active" class="dropdown-item" href="#">Créer un médecin</a></li>
+                            <li><a routerLink="/page-list-physicians" routerLinkActive="active" class="dropdown-item" href="#">Liste des médecins</a></li>        
+                        </ul>
+                    </li>
+                
+                </ul>
+            
+            <div>
+                
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <div *ngIf="isAuthenticated == false">
-                            <li class="nav-item">
+                        
+                            <li class="nav-item" *ngIf="isAuthenticated == false">
                                 <a routerLink="/page-sign-up" routerLinkActive="active" class="nav-link" >Créer un compte</a>
                             </li>
-                        </div>
-                        <div *ngIf="isAuthenticated == false">
-                            <li class="nav-item">
+                            <li class="nav-item" *ngIf="isAuthenticated == false"> 
                                 <a routerLink="/page-sign-in" routerLinkActive="active" class="nav-link" tabindex="-1">Se connecter</a>
                             </li>
-                        </div>
-                        <div *ngIf="isAuthenticated == true">
-                            <li class="nav-item">
+                    
+                    
+                            <li class="nav-item" *ngIf="isAuthenticated == true">
                                 <a class="nav-link clickable" tabindex="-1" (click)="onclickLogOut()">Déconnexion</a>
                             </li>
-                        </div>
+                           
                     </ul>
-                </div>
-            
-
-            
-            
-        
-    
+                
+                
+            </div>
+   
+        </div>
+    </div>
 </nav>

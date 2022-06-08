@@ -35,14 +35,13 @@ export class PhysicianService {
 
   updatePhysician(physician: Physician): Observable<any> {
     const token = localStorage.getItem("token");
-
     const body = {
-      lastname: physician.lastname,
-      firstname: physician.firstname,
-      specialtyId: physician.specialty,
-      address: physician.address,
-      siret: physician.siret,
-      id: physician.id
+      "firstname": physician.firstname,
+      "lastname": physician.lastname,
+      "specialtyId": +physician.specialty,
+      "address": physician.address,
+      "siret": physician.siret.toString(),
+      "id": physician.id
     }
 
     return this.http.put<any>(`${this.urlApi}/physicians/${physician.id}`,

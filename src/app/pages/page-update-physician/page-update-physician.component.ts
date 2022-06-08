@@ -11,12 +11,7 @@ import { PhysicianService } from 'src/app/services/physician.service';
 })
 export class PageUpdatePhysicianComponent implements OnInit {
   updatePhysicianForm!: FormGroup;
-  public specialtiesItems!: any;
-  public items: any;
-  public name: any;
-  public physicianToUpdate!: Physician;
-  public physician!: Physician;
-  public specialty!: any;
+  public specialties!: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,7 +22,7 @@ export class PageUpdatePhysicianComponent implements OnInit {
   ngOnInit(): void {
     this.physicianService.getAllSpecialties().subscribe((response) => {
       console.log(response);
-      this.specialtiesItems = response;
+      this.specialties = response;
     })
     
     this.activatedRoute.params.subscribe((param) => {
@@ -38,12 +33,11 @@ export class PageUpdatePhysicianComponent implements OnInit {
         this.updatePhysicianForm = this.fb.group({
           lastname: [respPhysician.lastname, Validators.required],
           firstname: [respPhysician.firstname, Validators.required],
-          specialty: [respPhysician.specialty, Validators.required],
+          specialty: [respPhysician.specialty.id, Validators.required],
           address: [respPhysician.address, Validators.required],
           siret: [respPhysician.siret, Validators.required],
           id: [respPhysician.id]    
         })
-        console.log(this.specialty);
         // this.updatePhysicianForm.controls['id-physician'].setValue('items.id', { onlySelf: true })
       })
     })
@@ -53,7 +47,15 @@ export class PageUpdatePhysicianComponent implements OnInit {
   
 
   onSubmitForm(){
-    const physicianToUpdate = this.updatePhysicianForm.value;
+    //const physicianToUpdate = this.updatePhysicianForm.value;
+    const physicianToUpdate = new Physician(
+      this.updatePhysicianForm.value.lastname,
+      this.updatePhysicianForm.value.firstname,
+      this.updatePhysicianForm.value.specialty,
+      this.updatePhysicianForm.value.address,
+      this.updatePhysicianForm.value.siret,
+      this.updatePhysicianForm.value.id
+    );
 
     this.physicianService.updatePhysician(physicianToUpdate).subscribe((resp) => {
       //alert(resp.message);

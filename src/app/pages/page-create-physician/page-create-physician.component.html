@@ -20,7 +20,7 @@
         <label for="specialty" class="form-label">Spécialité</label>
         <div>
             <select name="specialty" class="form-select" aria-label="Default select example" formControlName="specialty" >
-                <option selected *ngFor="let items of specialtiesItems" value= {{items.id}}>{{ items.name }}</option>
+                <option *ngFor="let items of specialtiesItems" value= {{items.id}}>{{ items.name }}</option>
                 <!-- <option value="items.id"></option> -->
                         
             </select>
